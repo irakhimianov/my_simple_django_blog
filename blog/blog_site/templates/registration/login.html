@@ -1,0 +1,14 @@
+<!-- templates/registration/login.html -->
+{% extends 'blog_site/base.html' %} &nbsp;
+{% block content %}
+    <section class="content__container _container">
+        <div class="content__title title">
+            Войти
+        </div>
+        <form class="post_new" action="" method="post">
+          {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Войти</button>
+        </form>
+    </section>
+{% endblock content %}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+<!--    <link href="{% static 'css/base.css' %}" rel="stylesheet">-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'css/classic.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container _container">
+				<div class="header__logo">
+					<a class="logo" href="{% url 'home' %}"></a>
+				</div>
+				<div class="header__menu">
+					<div class="menu__buttons">
+						<a href="{% url 'signup' %}" class="menu__registration button on-hover">Регистрация</a>
+						<a href="{% url 'login' %}" class="menu__login button on-hover">Войти</a>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div>
+			{% if user.is_authenticated %}
+				<section class="user-menu">
+					<div class="user-menu__container _container">
+						<div class="user-menu__greetings">
+						Привет, {{ user.username }}!
+						</div>
+						<div class="user-menu__buttons">
+							<a href="{% url 'logout' %}" class="button">Выйти</a>
+							<a href="{% url 'post_new' %}" class="button">Создать пост</a>
+						</div>
+					</div>
+				</section>
+			{% endif %}
+			<div>
+				{% block content %}
+				{% endblock content %}
+			</div>
+		</div>
+	</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!-- templates/post_detail.html -->
+{% extends './base.html' %}
+
+{% block content %}
+    <section class="content__container _container">
+        <div class="content__title title">
+            {{ post.title }}
+        </div>
+      <div class="content__body">
+        {{ post.body }}
+      </div>
+      <br>      <br>      <br>
+      <div class="header__menu">
+        <p><a class="button on-hover" href="{% url 'post_edit' post.pk %}">Редактировать</a></p>
+        <p><a class="button on-hover" href="{% url 'post_delete' post.pk %}">Удалить</a></p>
+      </div>
+    </section>
+{% endblock content %}

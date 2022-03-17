@@ -1,0 +1,14 @@
+<!-- templates/post_edit.html -->
+{% extends './base.html' %}
+
+{% block content %}
+<section class="content__container _container">
+        <div class="content__title title">
+            Окно редактирования
+        </div>
+    <form class="post_new" action="" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Обновить" />
+    </form>
+</section>
+{% endblock content %}

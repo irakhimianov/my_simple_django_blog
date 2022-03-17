@@ -1,0 +1,15 @@
+<!-- templates/post_new.html -->
+{% extends './base.html' %}
+
+{% block content %}
+    <section class="content__container _container">
+        <div class="content__title title">
+            Новый пост
+        </div>
+        <form class="post_new" action="" method="post">{% csrf_token %}
+            {{ form.as_p }}
+        <input type="submit" value="Сохранить" />
+        </form>
+    </section>
+
+{% endblock content %}
